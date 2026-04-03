@@ -17545,7 +17545,7 @@ function SnackCard(props) {
     const { obj } = props;
     const { name, caloriesPerServing, image } = obj;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "bg-blue-100 rounded-3xl shadow-md p-4 w-full sm:w-60 transition-all duration-300 hover:shadow-2xl",
+        className: "bg-orange-200 rounded-3xl shadow-md p-4 w-full sm:w-60 transition-all duration-300 hover:shadow-2xl",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "overflow-hidden rounded-xl",
@@ -17592,7 +17592,7 @@ function SnackCard(props) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                className: "mt-4 w-full bg-blue-800 text-white py-2 rounded-xl font-medium tracking-wide hover:opacity-90 active:scale-95 transition-all duration-200",
+                className: "mt-4 w-full bg-orange-700 text-white py-2 rounded-xl font-medium tracking-wide hover:opacity-90 active:scale-95 transition-all duration-200",
                 onClick: ()=>setShowForm(true),
                 children: "Order Now"
             }, void 0, false, {
@@ -20151,7 +20151,7 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _reactRouterDom = require("react-router-dom");
 function Header() {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "bg-blue-600 text-white px-6 py-3 shadow-md",
+        className: "bg-orange-700 text-white px-6 py-3 shadow-md",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
             className: "flex  gap-10 items-center",
             children: [
@@ -20164,7 +20164,7 @@ function Header() {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "flex gap-6 text-lg font-extrabold text-orange-300",
+                    className: "flex gap-6 text-lg font-extrabold text-white",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             className: "cursor-pointer  hover:text-gray-200",
@@ -27532,7 +27532,7 @@ function StudentPage() {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: ()=>setForm(true),
-                className: "mb-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition",
+                className: "mb-4 bg-orange-800 font-bold text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition",
                 children: "+ Create Student"
             }, void 0, false, {
                 fileName: "src/component/StudentPage.jsx",

@@ -8,7 +8,7 @@ function SnackCard(props) {
   const { name, caloriesPerServing, image } = obj;
 
   return (
-    <div className="bg-blue-100 rounded-3xl shadow-md p-4 w-full sm:w-60 transition-all duration-300 hover:shadow-2xl">
+    <div className="bg-orange-200 rounded-3xl shadow-md p-4 w-full sm:w-60 transition-all duration-300 hover:shadow-2xl">
       
       <div className="overflow-hidden rounded-xl">
         <img
@@ -29,7 +29,7 @@ function SnackCard(props) {
       </div>
 
       <button
-        className="mt-4 w-full bg-blue-800 text-white py-2 rounded-xl font-medium tracking-wide hover:opacity-90 active:scale-95 transition-all duration-200"
+        className="mt-4 w-full bg-orange-700 text-white py-2 rounded-xl font-medium tracking-wide hover:opacity-90 active:scale-95 transition-all duration-200"
         onClick={() => setShowForm(true)}
       >
         Order Now
