@@ -17541,48 +17541,64 @@ var _orderFormDefault = parcelHelpers.interopDefault(_orderForm);
 var _s = $RefreshSig$();
 function SnackCard(props) {
     _s();
-    // console.log(props);
     const [showForm, setShowForm] = (0, _react.useState)(false);
     const { obj } = props;
     const { name, caloriesPerServing, image } = obj;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: " bg-white rounded-2xl shadow-md p-4 w-60 hover:shadow-xl",
+        className: "bg-blue-100 rounded-3xl shadow-md p-4 w-full sm:w-60 transition-all duration-300 hover:shadow-2xl",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                className: "w-full h-32 object-cover rounded-lg",
-                src: image
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "overflow-hidden rounded-xl",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    className: "w-full h-40 sm:h-32 object-cover hover:scale-105 transition-transform duration-300",
+                    src: image,
+                    alt: name
+                }, void 0, false, {
+                    fileName: "src/component/SnackCard.jsx",
+                    lineNumber: 14,
+                    columnNumber: 9
+                }, this)
             }, void 0, false, {
                 fileName: "src/component/SnackCard.jsx",
-                lineNumber: 15,
-                columnNumber: 5
+                lineNumber: 13,
+                columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                className: "mt-2 font-semibold text-lg text-gray-800",
-                children: name
-            }, void 0, false, {
-                fileName: "src/component/SnackCard.jsx",
-                lineNumber: 18,
-                columnNumber: 5
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                className: "text-green-600 font-bold text-md",
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "mt-3",
                 children: [
-                    "Rs.",
-                    caloriesPerServing / 2
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        className: "font-semibold text-lg text-gray-800 truncate",
+                        children: name
+                    }, void 0, false, {
+                        fileName: "src/component/SnackCard.jsx",
+                        lineNumber: 22,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                        className: "text-green-600 font-bold text-md mt-1",
+                        children: [
+                            "\u20B9",
+                            Math.round(caloriesPerServing / 2)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/component/SnackCard.jsx",
+                        lineNumber: 26,
+                        columnNumber: 9
+                    }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/component/SnackCard.jsx",
-                lineNumber: 19,
-                columnNumber: 5
+                lineNumber: 21,
+                columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                className: "mt-3 bg-blue-800 text-white py-1 px-2 rounded-lg",
+                className: "mt-4 w-full bg-blue-800 text-white py-2 rounded-xl font-medium tracking-wide hover:opacity-90 active:scale-95 transition-all duration-200",
                 onClick: ()=>setShowForm(true),
-                children: "Order"
+                children: "Order Now"
             }, void 0, false, {
                 fileName: "src/component/SnackCard.jsx",
-                lineNumber: 20,
-                columnNumber: 5
+                lineNumber: 31,
+                columnNumber: 7
             }, this),
             showForm && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _orderFormDefault.default), {
                 itemName: name,
@@ -17591,13 +17607,13 @@ function SnackCard(props) {
                 onClose: ()=>setShowForm(false)
             }, void 0, false, {
                 fileName: "src/component/SnackCard.jsx",
-                lineNumber: 24,
-                columnNumber: 18
+                lineNumber: 39,
+                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/component/SnackCard.jsx",
-        lineNumber: 14,
+        lineNumber: 11,
         columnNumber: 5
     }, this);
 }
@@ -17638,117 +17654,156 @@ function OrderForm({ itemName, price, students = [], onClose }) {
             quantity,
             total: price * quantity
         };
-        // console.log("Order Placed:", orderData);
         const orders = JSON.parse(localStorage.getItem("orders")) || [];
         orders.push(orderData);
         localStorage.setItem("orders", JSON.stringify(orders));
         onClose();
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "fixed inset-0 flex items-center justify-center bg-black bg-opacity-40",
+        className: "fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm",
+        onClick: onClose,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "bg-white p-6 rounded-xl w-80 shadow-lg",
+            className: "bg-white w-[90%] max-w-sm p-6 rounded-2xl shadow-2xl transform transition-all duration-300 scale-100",
+            onClick: (e)=>e.stopPropagation(),
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                    className: "text-lg font-bold mb-4",
+                    className: "text-xl font-semibold text-gray-800 mb-4 text-center",
+                    children: itemName
+                }, void 0, false, {
+                    fileName: "src/component/OrderForm.jsx",
+                    lineNumber: 34,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    className: "text-center text-green-700 font-medium mb-4",
                     children: [
-                        "Order: ",
-                        itemName,
-                        "  - Rs.",
+                        "Price: \u20B9",
                         price
                     ]
                 }, void 0, true, {
                     fileName: "src/component/OrderForm.jsx",
-                    lineNumber: 32,
+                    lineNumber: 38,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
                     onSubmit: handleSubmit,
-                    className: "flex flex-col gap-3",
+                    className: "flex flex-col gap-4",
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
-                            className: "border p-2 rounded",
-                            value: student,
-                            onChange: (e)=>setStudent(e.target.value),
-                            required: true,
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                    value: "",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    className: "text-sm text-gray-600",
                                     children: "Select Student"
                                 }, void 0, false, {
                                     fileName: "src/component/OrderForm.jsx",
-                                    lineNumber: 44,
+                                    lineNumber: 45,
                                     columnNumber: 13
                                 }, this),
-                                students.map((s)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                        value: s.id,
-                                        children: s.name
-                                    }, s.id, false, {
-                                        fileName: "src/component/OrderForm.jsx",
-                                        lineNumber: 46,
-                                        columnNumber: 15
-                                    }, this))
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/component/OrderForm.jsx",
-                            lineNumber: 38,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
-                            className: "border p-2 rounded",
-                            value: quantity,
-                            onChange: (e)=>setQuantity(Number(e.target.value)),
-                            children: [
-                                1,
-                                2,
-                                3,
-                                4,
-                                5
-                            ].map((q)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
-                                    value: q,
-                                    children: q
-                                }, q, false, {
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                                    className: "w-full border mt-1 p-2 rounded-lg focus:ring-2 focus:ring-green-500 outline-none",
+                                    value: student,
+                                    onChange: (e)=>setStudent(e.target.value),
+                                    required: true,
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                            value: "",
+                                            children: "Choose..."
+                                        }, void 0, false, {
+                                            fileName: "src/component/OrderForm.jsx",
+                                            lineNumber: 52,
+                                            columnNumber: 15
+                                        }, this),
+                                        students.map((s)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                                value: s.id,
+                                                children: s.name
+                                            }, s.id, false, {
+                                                fileName: "src/component/OrderForm.jsx",
+                                                lineNumber: 54,
+                                                columnNumber: 17
+                                            }, this))
+                                    ]
+                                }, void 0, true, {
                                     fileName: "src/component/OrderForm.jsx",
-                                    lineNumber: 58,
-                                    columnNumber: 15
-                                }, this))
-                        }, void 0, false, {
-                            fileName: "src/component/OrderForm.jsx",
-                            lineNumber: 52,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "flex justify-end gap-2 mt-2",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                    type: "button",
-                                    onClick: onClose,
-                                    className: "bg-red-600 text-white px-3 py-1 rounded",
-                                    children: "Cancel"
-                                }, void 0, false, {
-                                    fileName: "src/component/OrderForm.jsx",
-                                    lineNumber: 65,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                    type: "submit",
-                                    className: "bg-green-600 text-white px-3 py-1 rounded",
-                                    children: "Order"
-                                }, void 0, false, {
-                                    fileName: "src/component/OrderForm.jsx",
-                                    lineNumber: 73,
+                                    lineNumber: 46,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/component/OrderForm.jsx",
-                            lineNumber: 64,
+                            lineNumber: 44,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    className: "text-sm text-gray-600",
+                                    children: "Quantity"
+                                }, void 0, false, {
+                                    fileName: "src/component/OrderForm.jsx",
+                                    lineNumber: 62,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("select", {
+                                    className: "w-full border mt-1 p-2 rounded-lg focus:ring-2 focus:ring-green-500 outline-none",
+                                    value: quantity,
+                                    onChange: (e)=>setQuantity(Number(e.target.value)),
+                                    children: [
+                                        1,
+                                        2,
+                                        3,
+                                        4,
+                                        5
+                                    ].map((q)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("option", {
+                                            value: q,
+                                            children: q
+                                        }, q, false, {
+                                            fileName: "src/component/OrderForm.jsx",
+                                            lineNumber: 69,
+                                            columnNumber: 17
+                                        }, this))
+                                }, void 0, false, {
+                                    fileName: "src/component/OrderForm.jsx",
+                                    lineNumber: 63,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/component/OrderForm.jsx",
+                            lineNumber: 61,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "flex justify-between gap-3 mt-3",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    type: "button",
+                                    onClick: onClose,
+                                    className: "w-full py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-100 transition",
+                                    children: "Cancel"
+                                }, void 0, false, {
+                                    fileName: "src/component/OrderForm.jsx",
+                                    lineNumber: 77,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    type: "submit",
+                                    className: "w-full py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition",
+                                    children: "Confirm"
+                                }, void 0, false, {
+                                    fileName: "src/component/OrderForm.jsx",
+                                    lineNumber: 85,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/component/OrderForm.jsx",
+                            lineNumber: 76,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/component/OrderForm.jsx",
-                    lineNumber: 36,
+                    lineNumber: 42,
                     columnNumber: 9
                 }, this)
             ]
@@ -17759,7 +17814,7 @@ function OrderForm({ itemName, price, students = [], onClose }) {
         }, this)
     }, void 0, false, {
         fileName: "src/component/OrderForm.jsx",
-        lineNumber: 28,
+        lineNumber: 26,
         columnNumber: 5
     }, this);
 }
@@ -20109,17 +20164,17 @@ function Header() {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "flex gap-6 text-lg",
+                    className: "flex gap-6 text-lg font-extrabold text-orange-300",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                            className: "cursor-pointer underline hover:text-gray-200",
+                            className: "cursor-pointer  hover:text-gray-200",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 to: "/SnackPage",
-                                children: "Snacks"
+                                children: "\uD83E\uDD57 Snacks"
                             }, void 0, false, {
                                 fileName: "src/component/Header.jsx",
                                 lineNumber: 12,
-                                columnNumber: 72
+                                columnNumber: 63
                             }, this)
                         }, void 0, false, {
                             fileName: "src/component/Header.jsx",
@@ -20127,14 +20182,14 @@ function Header() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                            className: "cursor-pointer underline hover:text-gray-200",
+                            className: "cursor-pointer  hover:text-gray-200",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                 to: "/StudentPage",
-                                children: "Students"
+                                children: "\uD83D\uDC68\u200D\uD83C\uDF93Students"
                             }, void 0, false, {
                                 fileName: "src/component/Header.jsx",
                                 lineNumber: 13,
-                                columnNumber: 72
+                                columnNumber: 63
                             }, this)
                         }, void 0, false, {
                             fileName: "src/component/Header.jsx",
@@ -27541,7 +27596,6 @@ var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 function StudentCard({ obj }) {
     _s();
-    console.log(obj);
     const { id, code, name } = obj;
     const [total, setTotal] = (0, _react.useState)(0);
     (0, _react.useEffect)(()=>{
@@ -27552,58 +27606,83 @@ function StudentCard({ obj }) {
         id
     ]);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "w-full sm:w-64",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "bg-white  rounded-2xl shadow-md p-4 w-64  hover:shadow-xl",
+            className: "bg-white rounded-3xl shadow-md p-5 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-gray-100",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    className: "text-lg font-bold text-gray-800",
+                    className: "text-xl font-semibold text-gray-800 truncate",
                     children: name
                 }, void 0, false, {
                     fileName: "src/component/StudentCard.jsx",
-                    lineNumber: 23,
-                    columnNumber: 5
+                    lineNumber: 22,
+                    columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    className: " text-green-800 font-medium",
+                    className: "text-sm text-gray-500 mt-1",
                     children: [
                         "Code: ",
-                        code
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "text-green-700 font-medium",
+                            children: code
+                        }, void 0, false, {
+                            fileName: "src/component/StudentCard.jsx",
+                            lineNumber: 27,
+                            columnNumber: 17
+                        }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/component/StudentCard.jsx",
-                    lineNumber: 24,
-                    columnNumber: 5
+                    lineNumber: 26,
+                    columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    className: "text-red-600 text-lg mb-2",
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "mt-3 bg-red-50 rounded-xl p-2 text-center",
                     children: [
-                        "Total Spend : Rs.",
-                        total
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "text-sm text-gray-500",
+                            children: "Total Spend"
+                        }, void 0, false, {
+                            fileName: "src/component/StudentCard.jsx",
+                            lineNumber: 31,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "text-lg font-bold text-red-600",
+                            children: [
+                                "\u20B9",
+                                total
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/component/StudentCard.jsx",
+                            lineNumber: 32,
+                            columnNumber: 11
+                        }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/component/StudentCard.jsx",
-                    lineNumber: 25,
-                    columnNumber: 5
+                    lineNumber: 30,
+                    columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                     to: `/students/${id}`,
-                    className: "mt-4 bg-green-800  text-white py-1.5 px-2 rounded-lg ",
-                    children: "Student Details"
+                    className: "block mt-4 text-center w-full bg-green-800 text-white py-2 rounded-xl font-medium tracking-wide hover:opacity-90 active:scale-95 transition-all duration-200",
+                    children: "View Details"
                 }, void 0, false, {
                     fileName: "src/component/StudentCard.jsx",
-                    lineNumber: 27,
-                    columnNumber: 5
+                    lineNumber: 35,
+                    columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/component/StudentCard.jsx",
-            lineNumber: 22,
-            columnNumber: 5
+            lineNumber: 20,
+            columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/component/StudentCard.jsx",
-        lineNumber: 21,
-        columnNumber: 4
+        lineNumber: 19,
+        columnNumber: 5
     }, this);
 }
 _s(StudentCard, "0EKuc4esRN+N9wgitXap6D0zfec=");
@@ -27635,95 +27714,121 @@ function CreateStudentForm({ onClose, addStudent }) {
     const [name, setName] = (0, _react.useState)("");
     const [code, setCode] = (0, _react.useState)("");
     (0, _react.useEffect)(()=>{
-        const code = "REF" + Math.floor(1000 + Math.random() * 9000);
-        setCode(code);
+        const generatedCode = "REF" + Math.floor(1000 + Math.random() * 9000);
+        setCode(generatedCode);
     }, []);
     const createStudent = ()=>{
         if (!name.trim()) return;
-        const newstudent = {
+        const newStudent = {
             id: Date.now(),
             name,
             code
         };
         const data = JSON.parse(localStorage.getItem("students")) || [];
-        data.push(newstudent);
+        data.push(newStudent);
         localStorage.setItem("students", JSON.stringify(data));
-        addStudent(newstudent);
+        addStudent(newStudent);
         onClose();
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "fixed inset-0 flex items-center justify-center bg-black bg-opacity-40",
+        className: "fixed inset-0  flex items-center justify-center bg-black/40 backdrop-blur-sm",
+        onClick: onClose,
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "bg-white p-6 rounded-xl w-80 shadow-lg",
+            className: "bg-white w-[90%] max-w-sm p-6 rounded-2xl shadow-2xl transition-all duration-300",
+            onClick: (e)=>e.stopPropagation(),
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                    className: "text-xl font-bold mb-4",
+                    className: "text-xl font-semibold text-gray-800 text-center mb-4",
                     children: "Create Student"
                 }, void 0, false, {
                     fileName: "src/component/CreateStudentForm.jsx",
-                    lineNumber: 34,
+                    lineNumber: 38,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                    type: "text",
-                    placeholder: "Enter Name",
-                    value: name,
-                    onChange: (e)=>setName(e.target.value),
-                    className: "border p-2 w-full mb-3 rounded"
-                }, void 0, false, {
-                    fileName: "src/component/CreateStudentForm.jsx",
-                    lineNumber: 36,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                    className: "mb-3",
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "mb-4",
                     children: [
-                        "Referral Code: ",
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                            className: "font-bold",
-                            children: code
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                            className: "text-sm text-gray-600",
+                            children: "Student Name"
                         }, void 0, false, {
                             fileName: "src/component/CreateStudentForm.jsx",
-                            lineNumber: 45,
-                            columnNumber: 26
+                            lineNumber: 43,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                            type: "text",
+                            placeholder: "Enter name...",
+                            value: name,
+                            onChange: (e)=>setName(e.target.value),
+                            className: "w-full mt-1 border p-2 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                        }, void 0, false, {
+                            fileName: "src/component/CreateStudentForm.jsx",
+                            lineNumber: 44,
+                            columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/component/CreateStudentForm.jsx",
-                    lineNumber: 44,
+                    lineNumber: 42,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "flex justify-end gap-2",
+                    className: "bg-gray-50 rounded-lg p-3 text-center mb-4",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "text-sm text-gray-500",
+                            children: "Referral Code"
+                        }, void 0, false, {
+                            fileName: "src/component/CreateStudentForm.jsx",
+                            lineNumber: 54,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            className: "text-lg font-bold text-blue-600",
+                            children: code
+                        }, void 0, false, {
+                            fileName: "src/component/CreateStudentForm.jsx",
+                            lineNumber: 55,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/component/CreateStudentForm.jsx",
+                    lineNumber: 53,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "flex gap-3",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            className: "bg-red-600 text-white px-3 py-1 rounded",
+                            className: "w-full py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-100 transition",
                             onClick: onClose,
                             children: "Cancel"
                         }, void 0, false, {
                             fileName: "src/component/CreateStudentForm.jsx",
-                            lineNumber: 49,
+                            lineNumber: 59,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            className: "bg-blue-600 text-white px-3 py-1 rounded",
+                            className: "w-full py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition",
                             onClick: createStudent,
                             children: "Create"
                         }, void 0, false, {
                             fileName: "src/component/CreateStudentForm.jsx",
-                            lineNumber: 56,
+                            lineNumber: 66,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/component/CreateStudentForm.jsx",
-                    lineNumber: 48,
+                    lineNumber: 58,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/component/CreateStudentForm.jsx",
-            lineNumber: 32,
+            lineNumber: 34,
             columnNumber: 7
         }, this)
     }, void 0, false, {
@@ -27775,7 +27880,7 @@ function StudentDetails() {
     ]);
     const total = orders.reduce((a, b)=>a + b.total, 0);
     if (!student) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-        className: "p-4",
+        className: "p-4 text-center text-gray-500",
         children: "Student not found"
     }, void 0, false, {
         fileName: "src/component/StudentDetails.jsx",
@@ -27783,13 +27888,13 @@ function StudentDetails() {
         columnNumber: 12
     }, this);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "p-6",
+        className: "p-4 sm:p-6 max-w-4xl mx-auto",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "bg-white p-4 rounded-xl shadow-md mb-6 w-80",
+                className: "bg-white p-5 rounded-3xl shadow-md mb-6 transition-all hover:shadow-xl",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                        className: "text-xl font-bold",
+                        className: "text-2xl font-bold text-gray-800",
                         children: student.name
                     }, void 0, false, {
                         fileName: "src/component/StudentDetails.jsx",
@@ -27797,25 +27902,49 @@ function StudentDetails() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        className: "text-green-600 font-semibold mt-2",
+                        className: "text-sm text-gray-500 mt-1",
                         children: [
                             "Code: ",
-                            student.code
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "text-green-700 font-medium",
+                                children: student.code
+                            }, void 0, false, {
+                                fileName: "src/component/StudentDetails.jsx",
+                                lineNumber: 35,
+                                columnNumber: 17
+                            }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/component/StudentDetails.jsx",
                         lineNumber: 34,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        className: "text-red-600 font-semibold mt-2",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "mt-4 bg-red-50 rounded-xl p-3 text-center",
                         children: [
-                            "Total Spend: \u20B9",
-                            total
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                className: "text-sm text-gray-500",
+                                children: "Total Spend"
+                            }, void 0, false, {
+                                fileName: "src/component/StudentDetails.jsx",
+                                lineNumber: 39,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                className: "text-xl font-bold text-red-600",
+                                children: [
+                                    "\u20B9",
+                                    total
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/component/StudentDetails.jsx",
+                                lineNumber: 40,
+                                columnNumber: 11
+                            }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/component/StudentDetails.jsx",
-                        lineNumber: 35,
+                        lineNumber: 38,
                         columnNumber: 9
                     }, this)
                 ]
@@ -27824,64 +27953,91 @@ function StudentDetails() {
                 lineNumber: 32,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                className: "text-lg font-semibold mb-3",
-                children: "Orders"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "flex justify-between items-center mb-3",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        className: "text-lg sm:text-xl font-semibold text-gray-800",
+                        children: "Orders"
+                    }, void 0, false, {
+                        fileName: "src/component/StudentDetails.jsx",
+                        lineNumber: 45,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: "/",
+                        className: "text-sm text-blue-700 font-medium hover:underline",
+                        children: "\u2190 Back"
+                    }, void 0, false, {
+                        fileName: "src/component/StudentDetails.jsx",
+                        lineNumber: 49,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "src/component/StudentDetails.jsx",
-                lineNumber: 40,
+                lineNumber: 44,
                 columnNumber: 7
             }, this),
             orders.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                className: "text-gray-500 text-center mt-6",
                 children: "No orders yet"
             }, void 0, false, {
                 fileName: "src/component/StudentDetails.jsx",
-                lineNumber: 43,
+                lineNumber: 58,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "flex flex-col gap-3",
+                className: "grid grid-cols-1 sm:grid-cols-2 gap-4",
                 children: orders.map((o, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "bg-gray-100 p-3 rounded-lg",
+                        className: "bg-white border border-gray-100 p-4 rounded-2xl shadow-sm hover:shadow-md transition-all",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                children: [
-                                    "Snack: ",
-                                    o.itemName
-                                ]
-                            }, void 0, true, {
+                                className: "font-medium text-gray-800",
+                                children: o.itemName
+                            }, void 0, false, {
                                 fileName: "src/component/StudentDetails.jsx",
-                                lineNumber: 48,
+                                lineNumber: 66,
                                 columnNumber: 15
                             }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "flex justify-between mt-2 text-sm text-gray-500",
                                 children: [
-                                    "Quantity: ",
-                                    o.quantity
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        children: [
+                                            "Qty: ",
+                                            o.quantity
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/component/StudentDetails.jsx",
+                                        lineNumber: 71,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        className: "font-semibold text-green-700",
+                                        children: [
+                                            "\u20B9",
+                                            o.total
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/component/StudentDetails.jsx",
+                                        lineNumber: 72,
+                                        columnNumber: 17
+                                    }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/component/StudentDetails.jsx",
-                                lineNumber: 49,
-                                columnNumber: 15
-                            }, this),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                children: [
-                                    "Amount: \u20B9",
-                                    o.total
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/component/StudentDetails.jsx",
-                                lineNumber: 50,
+                                lineNumber: 70,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, index, true, {
                         fileName: "src/component/StudentDetails.jsx",
-                        lineNumber: 47,
+                        lineNumber: 62,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "src/component/StudentDetails.jsx",
-                lineNumber: 45,
+                lineNumber: 60,
                 columnNumber: 9
             }, this)
         ]

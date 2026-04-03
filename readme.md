@@ -29,6 +29,34 @@ npm run start
 localhost:1234
 ```
 
+
+
+## How to Use
+
+### 1️. Create a Student
+- Click on **"Create Student"**
+- Enter the student's name  
+- Referral code is auto-generated  
+- Click **Create**
+
+---
+
+### 2️. Place an Order
+- Click on **"Order"** for any item  
+- Select a student from the dropdown  
+- Choose quantity  
+- Click **Confirm**
+
+---
+
+### 3️. View Student Details
+- Click on **"View Details"** on a student card  
+- Check:
+  - Total spending 💰  
+  - Order history 📜  
+
+---
+
 ## Packages
 ```
 npm init -y

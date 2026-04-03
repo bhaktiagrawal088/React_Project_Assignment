@@ -8,9 +8,9 @@ function Header() {
         
         <li className="text-xl font-bold">School Canteen</li>
 
-        <div className="flex gap-6 text-lg">
-          <li className="cursor-pointer underline hover:text-gray-200"><Link to="/SnackPage">Snacks</Link></li>
-          <li className="cursor-pointer underline hover:text-gray-200"><Link to="/StudentPage">Students</Link></li>
+        <div className="flex gap-6 text-lg font-extrabold text-orange-300">
+          <li className="cursor-pointer  hover:text-gray-200"><Link to="/SnackPage">🥗 Snacks</Link></li>
+          <li className="cursor-pointer  hover:text-gray-200"><Link to="/StudentPage">👨‍🎓Students</Link></li>
         </div>
 
       </ul>

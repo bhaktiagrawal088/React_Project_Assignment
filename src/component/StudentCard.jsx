@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
-function StudentCard({obj}) {
-    console.log(obj);
-    const {id, code, name} = obj;
-    const [total, setTotal] = useState(0);
-
+function StudentCard({ obj }) {
+  const { id, code, name } = obj;
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const orders = JSON.parse(localStorage.getItem("orders")) || [];
@@ -18,18 +16,32 @@ function StudentCard({obj}) {
   }, [id]);
 
   return (
-   <div>
-    <div className='bg-white  rounded-2xl shadow-md p-4 w-64  hover:shadow-xl'>
-    <h3 className="text-lg font-bold text-gray-800">{name}</h3>
-    <p className=" text-green-800 font-medium">Code: {code}</p>
-    <p className='text-red-600 text-lg mb-2'>Total Spend : Rs.{total}</p>
+    <div className="w-full sm:w-64">
+      <div className="bg-white rounded-3xl shadow-md p-5 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-gray-100">
+        
+        <h3 className="text-xl font-semibold text-gray-800 truncate">
+          {name}
+        </h3>
 
-    <Link 
-    to={`/students/${id}`}
-    className="mt-4 bg-green-800  text-white py-1.5 px-2 rounded-lg " >Student Details</Link>
+        <p className="text-sm text-gray-500 mt-1">
+          Code: <span className="text-green-700 font-medium">{code}</span>
+        </p>
+
+        <div className="mt-3 bg-red-50 rounded-xl p-2 text-center">
+          <p className="text-sm text-gray-500">Total Spend</p>
+          <p className="text-lg font-bold text-red-600">₹{total}</p>
+        </div>
+
+        <Link
+          to={`/students/${id}`}
+          className="block mt-4 text-center w-full bg-green-800 text-white py-2 rounded-xl font-medium tracking-wide hover:opacity-90 active:scale-95 transition-all duration-200"
+        >
+          View Details
+        </Link>
+
+      </div>
     </div>
-   </div>
   )
 }
 
-export default StudentCard
+export default StudentCard;
